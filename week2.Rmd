@@ -1,0 +1,12 @@
+---
+title: "week2"
+author: "Ajna Kertesz"
+date: "1/27/2022"
+output: html_document
+---
+
+Start adding text
+
+```{r }
+#start adding code
+```
