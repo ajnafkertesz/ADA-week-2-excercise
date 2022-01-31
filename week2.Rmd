@@ -1,12 +1,114 @@
 ---
-title: "week2"
+title: "Week 2"
 author: "Ajna Kertesz"
 date: "1/27/2022"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    theme: united
 ---
 
-Start adding text
-
-```{r }
-#start adding code
+```{r setup, include=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
 ```
+
+# Data Structures and Getting Data into R
+
+## Creating a matrix
+
+Matrix is used in regression, or any multivariate linear modelling.
+
+
+```{r load libs, warning=FALSE}
+library(tidyverse)
+library(readxl)
+library(data.table)
+  
+m<- matrix (1:30, nrow=5, ncol=5) #byrow = FALSE by default
+
+m
+
+class(m)
+dim(m)
+str(m)
+dimnames(m)
+
+```
+
+## Arrays
+
+Further extension of a matrix.
+
+```{r array, warning=FALSE}
+  
+a<-array (data=1:90, dim=c(5,6,3))
+
+a
+
+class(a)
+```
+
+## Subsetting
+
+Using set of index position
+
+```{r subset, warning=FALSE}
+
+m[1,1]
+
+i<- m[1,1]
+
+i
+
+m[2:3,4:5]
+
+
+```
+
+## Lists and Dataframes
+
+
+```{r list and df, warning=FALSE}
+
+s <- c("this", "is", "a", "vector", "of", "strings")
+
+m2 <- matrix(data=1:40, nrow=5, ncol=8) # this is a matrix
+b <- FALSE # this is a boolean variable
+l <- list(s, m2, b)
+l
+attributes(l)
+
+str(l[[2]])
+
+df <-
+  data.frame(
+    firstName = c("Rick", "Negan", "Dwight", "Maggie", "Michonne"),
+    community = c("Alexandria", "Saviors", "Saviors", "Hiltop", "Alexandria"),
+    sex = c("M", "M", "M", "F", "F"),
+    age = c(42, 40, 33, 28, 31)
+  )
+
+df[1,2]
+
+df[,c(3,4)]
+
+```
+
+##Read in data from files
+
+```{r read, warning=FALSE}
+#df2<- read.csv(
+#               file= "CPDS-1960-2014-reduced.csv",
+#               sep = ",",
+#               header = TRUE,
+#               stringAsFactors = FALSE
+#               )
+
+df2 <- read.csv("CPDS-1960-2014-reduced.csv")
+df3 <- read_csv("CPDS-1960-2014-reduced.csv")
+
+
+```
+
+
+
